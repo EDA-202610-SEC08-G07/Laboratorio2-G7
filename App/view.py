@@ -72,7 +72,7 @@ def load_books(app):
     :type app: logic
     """
     books = logic.load_books(app,
-                             "GoodReads/books-small.csv")
+                             "GoodReads/books.csv")
     return books
 
 
@@ -91,7 +91,7 @@ def load_tags(app):
 
 def load_books_tags(control):
     
-    booktags = logic.load_books_tags(control,"GoodReads/book_tags-small.csv")
+    booktags = logic.load_books_tags(control,"GoodReads/book_tags.csv")
     
     """
     Función que carga los tags de los libros en la aplicación.

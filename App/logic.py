@@ -120,6 +120,11 @@ def load_tags(catalog, filename):
 
 
 def load_books_tags(catalog, filename):
+    catalog = control["model"]
+    booksfile = os.path.join(cf.data_dir,filename)
+    catalog = model.addBookTags(catalog,booksfile)
+    return model.bookTagSize(catalog)
+    
     """
     Carga los tags de los libros del archivo y los agrega a la lista
     de tags. Siga el mismo procedimiento que en la carga de libros.
@@ -155,6 +160,8 @@ def last_book(catalog):
 
 
 def add_book_tags_file(catalog, booktagsfile):
+    catalog["book_tags"] = set.new_set()
+    return catalog
     """
     Esta funcion guardar los booktags provenientes del archivo CSV.
 
@@ -167,10 +174,12 @@ def add_book_tags_file(catalog, booktagsfile):
     :rtype: dict
     """
     # TODO: Mods de Est-1, Est-2 y Est-3 en el Lab 2
-    pass
+    
 
 
 def create_book_tag_list(catalog):
+    catalog["book_tags"] = set.new_set()
+    return catalog
     """
     Esta funcion crea una lista vacia para booktags.
     """
@@ -179,6 +188,8 @@ def create_book_tag_list(catalog):
 
 
 def add_book_tag(catalog, booktag):
+    set.add_element(catalog["book_tags"],booktag)
+    return catalog
     """
     Esta funcion agrega un elemento a lista de booktags.
 

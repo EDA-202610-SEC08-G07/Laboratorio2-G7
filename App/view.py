@@ -89,7 +89,10 @@ def load_tags(app):
     return tags
 
 
-def load_books_tags(app):
+def load_books_tags(control):
+    
+    booktags = logic.load_books_tags(control,"GoodReads/book_tags-small.csv")
+    
     """
     Función que carga los tags de los libros en la aplicación.
     Carga los tags de los libros desde el archivo book_tags-small.csv y los almacena en la aplicación
@@ -111,9 +114,22 @@ def first_book(app):
     """
     
     return set.get_first_element(catalog["books"])
+    # TODO: Mods de Est-1, Est-2 y Est-3 en el Lab 2
+    return booktags
+
+
+def first_book(control):
+    first = logic.first_book(control)
+    return first
+first = first_book(control)
+print("primer libro cargado:\n" + str(first) + "\n")
+
+   
+    
 
 
 def last_book(app):
+    
     # TODO: Mods de Est-1 y Est-2, Est-3 en el Lab 2
     """
     Devuelve el último libro cargado en el conjunto de libros
